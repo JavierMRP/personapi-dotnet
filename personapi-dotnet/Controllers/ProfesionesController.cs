@@ -9,11 +9,11 @@ using personapi_dotnet.Models.Entities;
 
 namespace personapi_dotnet.Controllers
 {
-    public class ProfesionsController : Controller
+    public class ProfesionesController : Controller
     {
         private readonly ArqPerDbContext _context;
 
-        public ProfesionsController(ArqPerDbContext context)
+        public ProfesionesController(ArqPerDbContext context)
         {
             _context = context;
         }
