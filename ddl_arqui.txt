@@ -1,0 +1,99 @@
+USE master;
+GO
+
+-- Disable certain constraints and settings temporarily
+EXEC sp_MSforeachtable @command1="ALTER TABLE ? NOCHECK CONSTRAINT ALL"
+GO
+EXEC sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXEC sp_configure 'foreign key checks', 0;
+GO
+RECONFIGURE;
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+SET ANSI_PADDING ON;
+GO
+
+-- Create database schema named "arq_per_db"
+IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'arq_per_db')
+BEGIN
+    EXEC('CREATE SCHEMA arq_per_db')
+END
+GO
+
+-- Use "arq_per_db" schema
+USE arq_per_db;
+GO
+
+-- Create "persona" table
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'persona')
+BEGIN
+    CREATE TABLE persona (
+        cc INT NOT NULL,
+        nombre VARCHAR(45) NOT NULL,
+        apellido VARCHAR(45) NOT NULL,
+        genero CHAR(1) NOT NULL,
+        edad INT NULL,
+        CONSTRAINT pk_persona PRIMARY KEY (cc)
+    );
+END
+GO
+
+-- Create "profesion" table
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'profesion')
+BEGIN
+    CREATE TABLE profesion (
+        id INT NOT NULL,
+        nom VARCHAR(90) NOT NULL,
+        des VARCHAR(MAX) NULL,
+        CONSTRAINT pk_profesion PRIMARY KEY (id)
+    );
+END
+GO
+
+-- Create "estudios" table
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'estudios')
+BEGIN
+    CREATE TABLE estudios (
+        id_prof INT NOT NULL,
+        cc_per INT NOT NULL,
+        fecha DATE NULL,
+        univer VARCHAR(50) NULL,
+        CONSTRAINT pk_estudios PRIMARY KEY (id_prof, cc_per),
+        CONSTRAINT fk_estudios_persona FOREIGN KEY (cc_per) REFERENCES persona(cc),
+        CONSTRAINT fk_estudios_profesion FOREIGN KEY (id_prof) REFERENCES profesion(id)
+    );
+END
+GO
+
+-- Create "telefono" table
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'telefono')
+BEGIN
+    CREATE TABLE telefono (
+        num VARCHAR(15) NOT NULL,
+        oper VARCHAR(45) NOT NULL,
+        duenio INT NOT NULL,
+        CONSTRAINT pk_telefono PRIMARY KEY (num),
+        CONSTRAINT fk_telefono_persona FOREIGN KEY (duenio) REFERENCES persona(cc)
+    );
+END
+GO
+
+-- Re-enable constraints and settings
+SET ANSI_PADDING OFF;
+GO
+EXEC sp_MSforeachtable @command1="ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL"
+GO
+EXEC sp_configure 'foreign key checks', 1;
+GO
+RECONFIGURE;
+GO
+EXEC sp_configure 'show advanced options', 0;
+GO
+RECONFIGURE;
+GO
