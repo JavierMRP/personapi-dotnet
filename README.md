@@ -3,7 +3,7 @@
 Descripcion del proyecto:
 
 
-projecto en monolito, para la gestion de profesiones y estudiantes,documentado con swagger y que dispone de un api por cada tabla que tiene su respectivo crud
+Un proyecto en monolito, para la gestion de profesiones y estudiantes,documentado con swagger y que dispone de un api por cada tabla que tiene su respectivo crud.
 
 
 ![Imagen11](https://user-images.githubusercontent.com/58142219/235403831-4118242b-727d-411c-8cfd-d1be83fe9632.png)
@@ -38,6 +38,8 @@ DESPLIEGUE:
 ![Imagen7](https://user-images.githubusercontent.com/58142219/235403631-04478ce2-3784-42a6-ab91-62ed2d19eca6.png)
 
 7. Finalmente se le da a la opción de publicar y Visual Studio empieza el proceso de compilación y  se entra a la página para ver su funcionameineto en la URL localhost:8089 
+
+
 ![Imagen8](https://user-images.githubusercontent.com/58142219/235403641-97b51c64-351e-4f0c-a1e2-dfb13dcfae0d.png)
 
 
@@ -55,6 +57,11 @@ BASE DE DATOS:
 6. Se ejecuta el script y luego se crea la base de datos, se crea un diagrama de la base de datos dando click izquierdo en la Database Digrams como se muestra en la imagen.
 
 
+
+
 ![Imagen13](https://user-images.githubusercontent.com/58142219/235404553-8ad77eb3-9ab6-456c-b744-a67a6223d459.png)
+
+
+
 
 7. Finalmente se obtiene un diagrama de la base de datos como se muestra en la siguiente imagen.
