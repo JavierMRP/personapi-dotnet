@@ -1,10 +1,16 @@
 # personapi-dotnet
 
-SE BORRO POR ERROR 
+Descripcion del proyecto:
+
+![Imagen11](https://user-images.githubusercontent.com/58142219/235403831-4118242b-727d-411c-8cfd-d1be83fe9632.png)
+
+![Imagen12](https://user-images.githubusercontent.com/58142219/235403993-8c4b5b39-276f-4ce2-bd31-16d955049d86.png)
 
 DESPLIEGUE:
 1. Para desplegar la aplicación se requiere instalar el conjunto de hospedaje de .Net Core, una vez instalado se abre la aplicación de Internet Information Systems IIS y se crea un nuevo sitio en este caso WebAppArqui. 
 ![Imagen1](https://user-images.githubusercontent.com/58142219/235403523-547a5762-da9f-40f4-89ff-0d7636d972f0.png)
+
+
 ![Imagen2](https://user-images.githubusercontent.com/58142219/235403554-b03098ba-fb96-427b-85d2-5dcaddd20ee4.png)
 
 2. En el grupo de aplicaciones se modifica la opción de  versión de .Net CLR a la opción Sin código administrado. 
@@ -24,7 +30,22 @@ DESPLIEGUE:
 
 7. Finalmente se le da a la opción de publicar y Visual Studio empieza el proceso de compilación y  se entra a la página para ver su funcionameineto en la URL localhost:8089 
 ![Imagen8](https://user-images.githubusercontent.com/58142219/235403641-97b51c64-351e-4f0c-a1e2-dfb13dcfae0d.png)
+
+
 ![Imagen9](https://user-images.githubusercontent.com/58142219/235403649-293f04ed-5db0-493b-8b34-385b3d69906a.png)
+
+
 ![Imagen10](https://user-images.githubusercontent.com/58142219/235403650-92e0b23a-3bf6-4a0c-b1e2-446ea47a888b.png)
 
 BASE DE DATOS:
+1. En la primera parte del script se desactivan las comprobaciones de unicidad y de claves foráneas, y establece un modo SQL específico.
+2. Se crea la tabla persona con los campos cc, nombre, apellido, género y edad, donde cc es la clave primaria de la tabla.
+3. Se crea la tabla profesion con los campos id, nom y des, donde id es la clave primaria de la tabla.
+4. Crea la tabla estudios con los campos id_prof, cc_per, fecha y univer, donde id_prof y cc_per forman la clave primaria de la tabla, y ambos campos son claves foráneas de las tablas profesión y persona respectivamente.
+5. Crea la tabla telefono con los campos num, oper y duenio, donde num es la clave primaria de la tabla, y duenio llave foránea que referencia a la columna cc de la tabla persona.
+6. Se ejecuta el script y luego se crea la base de datos, se crea un diagrama de la base de datos dando click izquierdo en la Database Digrams como se muestra en la imagen.
+
+
+![Imagen13](https://user-images.githubusercontent.com/58142219/235404553-8ad77eb3-9ab6-456c-b744-a67a6223d459.png)
+
+7. Finalmente se obtiene un diagrama de la base de datos como se muestra en la siguiente imagen.
