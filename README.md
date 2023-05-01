@@ -1,9 +1,19 @@
 # personapi-dotnet
 
-Descripción del proyecto: proyecto en monolito, para la gestión de profesiones y estudiantes,documentado con swagger y que dispone de un api por cada tabla que tiene su respectivo crud
+Descripcion del proyecto:
+
+
+projecto en monolito, para la gestion de profesiones y estudiantes,documentado con swagger y que dispone de un api por cada tabla que tiene su respectivo crud
+
+
 ![Imagen11](https://user-images.githubusercontent.com/58142219/235403831-4118242b-727d-411c-8cfd-d1be83fe9632.png)
 
 ![Imagen12](https://user-images.githubusercontent.com/58142219/235403993-8c4b5b39-276f-4ce2-bd31-16d955049d86.png)
+
+diagrama base datos de nuestra autoria:
+
+![Imagen-1](https://user-images.githubusercontent.com/58142219/235404909-8096a467-c890-4fa8-a94f-3c04dc87a1b8.png)
+
 
 DESPLIEGUE:
 1. Para desplegar la aplicación se requiere instalar el conjunto de hospedaje de .Net Core, una vez instalado se abre la aplicación de Internet Information Systems IIS y se crea un nuevo sitio en este caso WebAppArqui. 
