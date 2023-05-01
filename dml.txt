@@ -1,0 +1,50 @@
+-- Insertar datos en tabla "persona"
+INSERT INTO arq_per_db.persona (cc, nombre, apellido, genero, edad)
+VALUES (123456789, 'Juan', 'Pérez', 'M', 30),
+(234567890, 'María', 'García', 'F', 25),
+(345678901, 'Pedro', 'Rodríguez', 'M', 40),
+(456789012, 'Laura', 'Sánchez', 'F', 35);
+
+-- Insertar datos en tabla "profesion"
+INSERT INTO arq_per_db.profesion (id, nom, des)
+VALUES (1, 'Ingeniero de Sistemas', 'Desarrolla y mantiene sistemas informáticos'),
+(2, 'Médico', 'Diagnostica y trata enfermedades'),
+(3, 'Abogado', 'Asesora y defiende legalmente a personas y empresas');
+
+-- Insertar datos en tabla "estudios"
+INSERT INTO arq_per_db.estudios (id_prof, cc_per, fecha, univer)
+VALUES (1, 123456789, '2010-06-01', 'Universidad Nacional'),
+(1, 234567890, '2015-05-01', 'Universidad de los Andes'),
+(2, 345678901, '2005-01-01', 'Universidad del Rosario'),
+(3, 456789012, '2010-12-01', 'Universidad Externado');
+
+-- Insertar datos en tabla "telefono"
+INSERT INTO arq_per_db.telefono (num, oper, duenio)
+VALUES ('1234567', 'Claro', 123456789),
+('2345678', 'Movistar', 234567890),
+('3456789', 'Tigo', 345678901),
+('4567890', 'Virgin', 456789012);
+
+-- Seleccionar todos los datos de la tabla "persona"
+SELECT * FROM arq_per_db.persona;
+
+-- Seleccionar la edad y el género de las personas mayores de 30 años
+SELECT edad, genero FROM arq_per_db.persona WHERE edad > 30;
+
+-- Seleccionar los nombres y apellidos de las personas cuyo número de documento esté en la tabla "estudios"
+SELECT p.nombre, p.apellido FROM arq_per_db.persona p
+INNER JOIN arq_per_db.estudios e ON p.cc = e.cc_per;
+
+-- Seleccionar el nombre de la profesión y el nombre y apellido de la persona que la tiene
+SELECT pr.nom, pe.nombre, pe.apellido FROM arq_per_db.profesion pr
+INNER JOIN arq_per_db.estudios e ON pr.id = e.id_prof
+INNER JOIN arq_per_db.persona pe ON e.cc_per = pe.cc;
+
+-- Seleccionar el número de teléfono y el nombre y apellido del dueño del teléfono
+SELECT t.num, p.nombre, p.apellido FROM arq_per_db.telefono t
+INNER JOIN arq_per_db.persona p ON t.duenio = p.cc;
+
+-- Seleccionar el nombre y descripción de las profesiones que tengan al menos una persona estudiando en una universidad específica
+SELECT DISTINCT pr.nom, pr.des FROM arq_per_db.profesion pr
+INNER JOIN arq_per_db.estudios e ON pr.id = e.id_prof
+WHERE e.univer = 'Universidad Nacional';
