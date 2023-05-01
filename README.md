@@ -1,7 +1,6 @@
 # personapi-dotnet
 
-Descripcion del proyecto:
-proyecto en monolito, para la gestión de profesiones y estudiantes,documentado con swagger y que dispone de un api por cada tabla que tiene su respectivo crud
+Descripción del proyecto: proyecto en monolito, para la gestión de profesiones y estudiantes,documentado con swagger y que dispone de un api por cada tabla que tiene su respectivo crud
 ![Imagen11](https://user-images.githubusercontent.com/58142219/235403831-4118242b-727d-411c-8cfd-d1be83fe9632.png)
 
 ![Imagen12](https://user-images.githubusercontent.com/58142219/235403993-8c4b5b39-276f-4ce2-bd31-16d955049d86.png)
